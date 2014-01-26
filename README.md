@@ -14,6 +14,7 @@ DryAuth bundles commonly used gems into a single Rails Engine and provides addit
 * A User Preferences view for a single user to update their profile
 * A menu system to access the above
 * A view for history changes stored by PaperTrail (todo)
+* Auth Profiles for 3rd party authentication credentials mapped to the User
 
 ## Dependencies
 
@@ -34,34 +35,26 @@ gem "dry_auth"
 
 ## Usage
 
-DryAuth provides drop-in AAA by providing a built-in User model.
-This model needs to be associated to the application's User model, e.g. Member, Author, etc
+DryAuth provides drop-in AAA by providing a User model.
+This model needs to be associated to the application's User model, e.g. Member, Author, etc.
 
 ### Model Assocation
 
-In the application using the DryAuth gem, generate a user model, e.g. Author, that will store a reference to DryAuth::User:
+1. Generate a user model, e.g FacebookUser, in the application with a reference to DryAuth::User
 
-	<pre><code>
-	rails g model author dry_auth_user:references name
+	rails g model facebook_user dry_auth_user:references name
 	rake dry_auth:install:migrations db:migrate
-	</pre></code>
 
 
-Update the User model association
+1. Update the User model association
+
+	```ruby
+	class FacebookUser < ActiveRecord::Base
+	  belongs_to :user, class_name: "DryAuth::User"
+	end
 
 
-```ruby
-class FacebookUser < ActiveRecord::Base
-  include CacheParty::Facebook::Helpers
-
-  belongs_to :user, class_name: "DryAuth::User"
-end
-```
-
-
-
-
-Create an association from an application model to DryAuth::User
+1. Create an association from an application model to DryAuth::User, 
 
 In the application, create an initializer to add association and delegates to DryAuth::User:
 
