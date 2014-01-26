@@ -107,6 +107,7 @@ To add fields to DryAuth's User edit view
 
 1. Strong Parameters on DryAuth::UserController
 
+test
 
 
 ## Adding Roles and Authorization
