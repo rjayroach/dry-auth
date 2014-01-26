@@ -40,10 +40,12 @@ This model needs to be associated to the application's User model, e.g. Member, 
 
 ### Model Assocation
 
-1. Generate a user model, e.g FacebookUser, in the application with a reference to DryAuth::User
+1. Generate a user model, e.g FacebookUser, in the application with a reference to DryAuth::User:
 
 	rails g model facebook_user dry_auth_user:references name
 	rake dry_auth:install:migrations db:migrate
+        <code><pre>
+        </code></pre>
 
 
 1. Update the User model association
@@ -52,45 +54,46 @@ This model needs to be associated to the application's User model, e.g. Member, 
 	class FacebookUser < ActiveRecord::Base
 	  belongs_to :user, class_name: "DryAuth::User"
 	end
+        ```
 
 
-1. Create an association from an application model to DryAuth::User, 
+1. Create an association from an application model to DryAuth::User
 
-In the application, create an initializer to add association and delegates to DryAuth::User:
+	In the application, create an initializer to add association and delegates to DryAuth::User:
 
-```ruby
-Rails.application.config.to_prepare do
+	```ruby
+	Rails.application.config.to_prepare do
 
-  # 
-  # Add an association to the User model to FacebookUser
-  #
-  DryAuth::User.class_eval do
-    # todo conditions on this association? would be when provider.eql? 'facebook'
-    has_one :facebook_user, class_name: 'CacheParty::FacebookUser', dependent: :destroy
-  end
+	  # 
+	  # Add an association to the User model to FacebookUser
+	  #
+	  DryAuth::User.class_eval do
+	    # todo conditions on this association? would be when provider.eql? 'facebook'
+	    has_one :facebook_user, class_name: 'CacheParty::FacebookUser', dependent: :destroy
+	  end
 
 
-  # 
-  # Create a new CacheParty::FacebookUser when a new AuthProfile is created and the provider name is 'facebook'
-  # NOTE: The method below has knowledge of the inner workings of DryAuth User and AuthUser classes
-  #   Specifically, it assumes that the auth_profile will have a valid reference to a user (which is reasonable)
-  #
-  DryAuth::AuthProfile.class_eval do
+	  # 
+	  # Create a new CacheParty::FacebookUser when a new AuthProfile is created and the provider name is 'facebook'
+	  # NOTE: The method below has knowledge of the inner workings of DryAuth User and AuthUser classes
+	  #   Specifically, it assumes that the auth_profile will have a valid reference to a user (which is reasonable)
+	  #
+	  DryAuth::AuthProfile.class_eval do
 
-    # After saving an AuthProfile, check for an existing record of FacebookUser and create one if it doesn't exist
-    after_save :facebook_user_create, if: "self.provider.eql?('facebook') and self.user.facebook_user.nil?"
+	    # After saving an AuthProfile, check for an existing record of FacebookUser and create one if it doesn't exist
+	    after_save :facebook_user_create, if: "self.provider.eql?('facebook') and self.user.facebook_user.nil?"
 
-    #
-    # Create a FacebookUser setting the username to the uid returned from facebook
-    #
-    def facebook_user_create
-      Rails.logger.debug "Creating CacheParty::FacebookUser for DryAuth::User from #{ __FILE__ }\n"
-      self.user.create_facebook_user(facebook_id: self.uid)
-    end
-  end
+	    #
+	    # Create a FacebookUser setting the username to the uid returned from facebook
+	    #
+	    def facebook_user_create
+	      Rails.logger.debug "Creating CacheParty::FacebookUser for DryAuth::User from #{ __FILE__ }\n"
+	      self.user.create_facebook_user(facebook_id: self.uid)
+	    end
+	  end
 
-end
-```
+	end
+	```
 
 ### Customized Views
 
