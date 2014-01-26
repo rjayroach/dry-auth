@@ -2,11 +2,12 @@
 
 [![Build Status](https://semaphoreapp.com/api/v1/projects/6a4f592a-4a69-4976-983f-c10726d6a718/130967/shields_badge.png )](https://semaphoreapp.com/api/v1/projects/6a4f592a-4a69-4976-983f-c10726d6a718/130967/shields_badge.png)
 
-DryAuth bundles commonly used gems into a single Rails Engine to provide a simple AAA solution.
+DryAuth is a simple AAA solution for Rails applications. By bundling commonly used gems into a single Rails Engine.
 
-It uses Devise for Authentication, CanCan and Rolify for authorization and PaperTrail for accounting
-
+DryAuth, as it's name implies, provides a simple Do Not Repeat Yourself AAA solution for Rails applications.
+It uses Devise for Authentication, CanCan and Rolify for authorization and PaperTrail for accounting.
 In addition to bundling the gems, it provides:
+
 
 1. A JSON authentication API
 1. A GUI for CRUD on a User database and generating token keys
