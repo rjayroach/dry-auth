@@ -13,23 +13,23 @@ rake [<engine>:install:migrations] db:migrate
 </pre></code>
 
 
-1. update the User model association
+2. update the User model association
 
 See: mcp_common/app/models/mcp_common/user.rb
 
 
-1. create an initializer to add association and delegates to DryAuth::User:
+3. create an initializer to add association and delegates to DryAuth::User:
 
 See: mcp_common/initializers/user.rb
 
 
-1. create a partial to render to edit fields:
+4. create a partial to render to edit fields:
 
-The file must live in:  app/views/<engine>/users/\_form.html.erb
+The file must live in:  app/views/\<engine\>/users/\_form.html.erb
 
 See: mcp_common/app/views/mcp_common/users/\_form.html.erb
 
-1. Strong Parameters on DryAuth::UserController
+5. Strong Parameters on DryAuth::UserController
 
 ?????
 
