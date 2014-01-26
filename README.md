@@ -42,22 +42,21 @@ This model needs to be associated to the application's User model, e.g. Member, 
 
 1. Generate a user model, e.g FacebookUser, in the application with a reference to DryAuth::User:
 
+        <code><pre>
 	rails g model facebook_user dry_auth_user:references name
 	rake dry_auth:install:migrations db:migrate
-        <code><pre>
         </code></pre>
 
 
-1. Update the User model association
+1. Update the User model association:
 
 	```ruby
 	class FacebookUser < ActiveRecord::Base
 	  belongs_to :user, class_name: "DryAuth::User"
 	end
-        ```
 
 
-1. Create an association from an application model to DryAuth::User
+1. Create an association from an application model to DryAuth::User:
 
 	In the application, create an initializer to add association and delegates to DryAuth::User:
 
@@ -95,7 +94,7 @@ This model needs to be associated to the application's User model, e.g. Member, 
 	end
 	```
 
-### Customized Views
+### Customize Views
 
 To add fields to DryAuth's User edit view
 
