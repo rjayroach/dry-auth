@@ -45,7 +45,7 @@ This model needs to be associated to the application's User model, e.g. Member, 
 	```bash
 	rails g model facebook_user dry_auth_user:references name
 	rake dry_auth:install:migrations db:migrate
-
+	```
 
 1. Update the User model association:
 
@@ -53,7 +53,7 @@ This model needs to be associated to the application's User model, e.g. Member, 
 	class FacebookUser < ActiveRecord::Base
 	  belongs_to :user, class_name: "DryAuth::User"
 	end
-
+	```
 
 1. Create an association from an application model to DryAuth::User:
 
