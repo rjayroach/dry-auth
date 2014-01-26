@@ -42,10 +42,9 @@ This model needs to be associated to the application's User model, e.g. Member, 
 
 1. Generate a user model, e.g FacebookUser, in the application with a reference to DryAuth::User:
 
-        <code><pre>
+	```bash
 	rails g model facebook_user dry_auth_user:references name
 	rake dry_auth:install:migrations db:migrate
-        </code></pre>
 
 
 1. Update the User model association:
