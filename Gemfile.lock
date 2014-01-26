@@ -1,17 +1,7 @@
-PATH
-  remote: .
-  specs:
-    dry_auth (0.13.0)
-      cancan (~> 1.6.9)
-      devise (~> 2.2.3)
-      mcp_common
-      omniauth
-      omniauth-facebook (= 1.4.0)
-      rails (~> 3.2.14)
-      rolify (~> 3.3.0.rc3)
-
-PATH
-  remote: /home/maxpub/dev/engines/mcp_common
+GIT
+  remote: https://github.com/rjayroach/mcp_common
+  revision: 01773ae9c1a251bcc2e35ad66fe5be9c377a0e9b
+  branch: master
   specs:
     mcp_common (0.14.3)
       bootstrap-sass (= 2.3.2.2)
@@ -32,10 +22,16 @@ PATH
       will_paginate (>= 3.0.3)
 
 PATH
-  remote: /home/maxpub/dev/sandbox/rename
+  remote: .
   specs:
-    rename (1.0.1)
-      rails (>= 3.0.0)
+    dry_auth (0.13.0)
+      cancan (~> 1.6.9)
+      devise (~> 2.2.3)
+      mcp_common
+      omniauth
+      omniauth-facebook (= 1.4.0)
+      rails (~> 3.2.14)
+      rolify (~> 3.3.0.rc3)
 
 GEM
   remote: http://rubygems.org/
@@ -364,7 +360,6 @@ DEPENDENCIES
   pry-stack_explorer
   rails3-generators
   rb-inotify
-  rename!
   rspec-rails (>= 2.12.2)
   sass-rails
   shoulda-matchers
