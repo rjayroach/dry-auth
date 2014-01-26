@@ -34,68 +34,82 @@ gem "dry_auth"
 
 ## Usage
 
-Building a User Extenison model for storing information related to the Application's User
-In the engine or app which is going to link to DryAuth::User do the following:
+DryAuth provides drop-in AAA by providing a built-in User model.
+This model needs to be associated to the application's User model, e.g. Member, Author, etc
 
+### Model Assocation
 
-  1. Generate a user model (Engine::User) that stores a reference to DryAuth::User:
+In the application using the DryAuth gem, generate a user model, e.g. Author, that will store a reference to DryAuth::User:
 
 	<pre><code>
-	rails g model user dry_auth_user:references name
-	rake [<engine>:install:migrations] db:migrate
+	rails g model author dry_auth_user:references name
+	rake dry_auth:install:migrations db:migrate
 	</pre></code>
 
 
-  2. update the User model association
-
-	See: mcp_common/app/models/mcp_common/user.rb
+Update the User model association
 
 
-  3. Create an association from an application model to DryAuth::User
+```ruby
+class FacebookUser < ActiveRecord::Base
+  include CacheParty::Facebook::Helpers
 
-	In the application, create an initializer to add association and delegates to DryAuth::User:
-
-	```ruby
-	Rails.application.config.to_prepare do
-
-	  # 
-	  # Add an association to the User model to FacebookUser
-	  #
-	  DryAuth::User.class_eval do
-	    # todo conditions on this association? would be when provider.eql? 'facebook'
-	    has_one :facebook_user, class_name: 'CacheParty::FacebookUser', dependent: :destroy
-	  end
+  belongs_to :user, class_name: "DryAuth::User"
+end
+```
 
 
-	  # 
-	  # Create a new CacheParty::FacebookUser when a new AuthProfile is created and the provider name is 'facebook'
-	  # NOTE: The method below has knowledge of the inner workings of DryAuth User and AuthUser classes
-	  #   Specifically, it assumes that the auth_profile will have a valid reference to a user (which is reasonable)
-	  #
-	  DryAuth::AuthProfile.class_eval do
-
-	    # After saving an AuthProfile, check for an existing record of FacebookUser and create one if it doesn't exist
-	    after_save :facebook_user_create, if: "self.provider.eql?('facebook') and self.user.facebook_user.nil?"
-
-	    #
-	    # Create a FacebookUser setting the username to the uid returned from facebook
-	    #
-	    def facebook_user_create
-	      Rails.logger.debug "Creating CacheParty::FacebookUser for DryAuth::User from #{ __FILE__ }\n"
-	      self.user.create_facebook_user(facebook_id: self.uid)
-	    end
-	  end
-
-	end
-	```
 
 
+Create an association from an application model to DryAuth::User
+
+In the application, create an initializer to add association and delegates to DryAuth::User:
+
+```ruby
+Rails.application.config.to_prepare do
+
+  # 
+  # Add an association to the User model to FacebookUser
+  #
+  DryAuth::User.class_eval do
+    # todo conditions on this association? would be when provider.eql? 'facebook'
+    has_one :facebook_user, class_name: 'CacheParty::FacebookUser', dependent: :destroy
+  end
+
+
+  # 
+  # Create a new CacheParty::FacebookUser when a new AuthProfile is created and the provider name is 'facebook'
+  # NOTE: The method below has knowledge of the inner workings of DryAuth User and AuthUser classes
+  #   Specifically, it assumes that the auth_profile will have a valid reference to a user (which is reasonable)
+  #
+  DryAuth::AuthProfile.class_eval do
+
+    # After saving an AuthProfile, check for an existing record of FacebookUser and create one if it doesn't exist
+    after_save :facebook_user_create, if: "self.provider.eql?('facebook') and self.user.facebook_user.nil?"
+
+    #
+    # Create a FacebookUser setting the username to the uid returned from facebook
+    #
+    def facebook_user_create
+      Rails.logger.debug "Creating CacheParty::FacebookUser for DryAuth::User from #{ __FILE__ }\n"
+      self.user.create_facebook_user(facebook_id: self.uid)
+    end
+  end
+
+end
+```
+
+### Customized Views
+
+To add fields to DryAuth's User edit view
 
   4. create a partial to render to edit fields:
 
 	The file must live in:  app/views/\<engine\>/users/\_form.html.erb
 
 	See: mcp_common/app/views/mcp_common/users/\_form.html.erb
+
+### TODO
 
   5. Strong Parameters on DryAuth::UserController
 
