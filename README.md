@@ -1,6 +1,6 @@
 # DryAuth
 
-https://semaphoreapp.com/api/v1/projects/6a4f592a-4a69-4976-983f-c10726d6a718/130967/shields_badge.png
+(https://semaphoreapp.com/api/v1/projects/6a4f592a-4a69-4976-983f-c10726d6a718/130967/shields_badge.png)
 
 
 Building a User Extenison model for storing information related to the Application's User
