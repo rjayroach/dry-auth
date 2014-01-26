@@ -1,0 +1,73 @@
+
+<!--
+<table>
+  <tr><td><b>UTC</b></td></tr>
+  <tr><td>Time.now.in_time_zone('UTC'):</td><td><%= Time.now.in_time_zone('UTC') %></td></tr>
+  <tr><td>&nbsp;</td></tr>
+
+  <tr><td><b>System</b></td></tr>
+  <td>Time.now.zone:</td><td><%= Time.now.zone %></td></tr>
+  <tr><td>Time.now:</td><td><%= Time.now %></td></tr>
+  <tr><td>Today:</td><td><%= Time.now.beginning_of_day %></td><td>| <%= Time.now.end_of_day %></td></tr>
+  <tr><td>This Week:</td><td><%= Time.now.beginning_of_week %></td><td>| <%= Time.now.end_of_week %></td></tr>
+  <tr>
+    <td>Today ('UTC'):</td><td><%= Time.now.beginning_of_day.in_time_zone('UTC') %></td>
+    <td>| <%= Time.now.end_of_day.in_time_zone('UTC') %></td>
+  </tr>
+  <tr>
+    <td>This Week ('UTC'):</td><td><%= Time.now.beginning_of_week.in_time_zone('UTC') %></td>
+    <td>| <%= Time.now.end_of_week.in_time_zone('UTC') %></td>
+  </tr>
+  <tr><td>&nbsp;</td></tr>
+
+  <tr><td><b>Request</b></td></tr>
+  <tr><td>Time.zone:</td><td><%= Time.zone %></td></tr>
+  <tr><td>Time.zone.now:</td><td><%= Time.zone.now %></td></tr>
+  <tr><td>Today:</td><td><%= Time.zone.now.beginning_of_day %></td><td>| <%= Time.zone.now.end_of_day %></td></tr>
+  <tr><td>This Week:</td><td><%= Time.zone.now.beginning_of_week %></td><td>| <%= Time.zone.now.end_of_week %></td></tr>
+  <tr>
+    <td>Today ('UTC'):</td><td><%= Time.zone.now.beginning_of_day.in_time_zone('UTC') %></td>
+    <td>| <%= Time.zone.now.end_of_day.in_time_zone('UTC') %></td>
+  </tr>
+  <tr>
+    <td>This Week ('UTC'):</td><td><%= Time.zone.now.beginning_of_week.in_time_zone('UTC') %></td>
+    <td>| <%= Time.zone.now.end_of_week.in_time_zone('UTC') %></td>
+  </tr>
+  <tr><td>&nbsp;</td></tr>
+
+</table>
+-->
+
+
+<p>
+  <b>User Name</b>
+  <%= @user.username %>
+</p>
+
+<p>
+  <b>Email</b>
+  <%= @user.email %>
+</p>
+<% if !@user.authentication_token.nil? %>
+<p>
+  <b>Token</b>
+  <%= @user.authentication_token %>
+</p>
+<% end %>
+
+<% if !@user.roles.empty? %>
+  <table>
+    <th>Role</th>
+    <% @user.roles.pluck(:name).each do |role| %>
+      <tr><td><%= role %></td></tr>
+    <% end %>
+  </table>
+<% end %>
+
+<% if current_user.has_role? :admin %>
+  <%= link_to 'Edit', edit_user_path(@user) %> |
+  <%= link_to 'Back', users_path %>
+<% else %>
+  <%= link_to 'Edit', profile_edit_path %>
+<% end %>
+

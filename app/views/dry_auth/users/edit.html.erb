@@ -1,0 +1,12 @@
+<h1>Editing user</h1>
+
+<%= render 'form' %>
+
+<% if current_user.has_role? :admin %>
+  <%= link_to 'Show', @user %> |
+  <%= link_to 'Back', users_path %>
+<% else %>
+  <%= link_to 'Cancel', @user %>
+<% end %>
+
+

@@ -1,0 +1,29 @@
+
+
+
+<%= simple_form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <% flash[:error] = "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved" %>
+    <% flash[:error] << "<br>#{@user.errors.full_messages.join("<br>")}" %>
+  <% end %>
+
+  <%= f.label :locale %>
+  <%= f.select :locale, I18n.available_locales %>
+  <div class="field">
+    <%= f.label :time_zone %><br />
+    <%= f.time_zone_select :time_zone %>
+  </div>
+
+  <%= f.input :username %>
+  <%= f.input :email %>
+  <%= f.input :authentication_token, input_html: {readonly: true} if !@user.authentication_token.nil? %>
+
+
+  <%= mcp_engines_render_partial 'users/form', skip: :dry_auth, locals: { f: f, r: @user } %>
+
+  <div class="actions">
+    <%= f.submit id: 'user_submit' %>
+  </div>
+<% end %>
+
+

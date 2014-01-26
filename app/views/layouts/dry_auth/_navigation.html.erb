@@ -1,0 +1,21 @@
+
+<% if user_signed_in? %> 
+
+  <% content_for :account_menu do %>
+    <li><%= link_to raw("<i class='icon-edit'></i>  Edit Profile"), DryAuth::Engine.routes.url_helpers.profile_edit_path %></li>
+    <li><%= link_to raw("<i class='icon-remove-circle'></i>  Logout"), DryAuth::Engine.routes.url_helpers.destroy_user_session_path, method: 'delete' %></li>
+  <% end %>
+
+  <% content_for :admin_menu do %>
+    <li><%= link_to raw("<i class='icon-user'></i>  Users"), DryAuth::Engine.routes.url_helpers.users_path %>
+  <% end %>
+
+<% else %>
+
+  <% content_for :anonymous_menu do %>
+    <li><%= link_to('Login', DryAuth::Engine.routes.url_helpers.new_user_session_path) %></li>
+  <% end %>
+
+<% end %>
+
+

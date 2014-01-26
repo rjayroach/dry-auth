@@ -1,0 +1,29 @@
+$:.push File.expand_path("../lib", __FILE__)
+
+# Maintain your gem's version:
+require "dry_auth/version"
+
+# Describe your gem and declare its dependencies:
+Gem::Specification.new do |s|
+  s.name        = "dry_auth"
+  s.version     = DryAuth::VERSION
+  s.authors     = ["Robert Roach"]
+  s.email       = ["robert.roach@maxcole.com"]
+  s.homepage    = "http://www.maxcole.com"
+  s.summary     = "An Mcp Gem"
+  s.description = "Provide a single authentication interface including Devise, CanCan, Rolify and Omniauth."
+
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
+
+#=begin # Rails 3
+  s.add_dependency "rails", "~> 3.2.14"
+  s.add_dependency "cancan", "~> 1.6.9"
+  s.add_dependency "devise", "~> 2.2.3"
+  s.add_dependency "rolify", "~> 3.3.0.rc3"
+  s.add_dependency "omniauth"
+  s.add_dependency "omniauth-facebook", '1.4.0'
+  s.add_dependency "mcp_common" #, '>= 0.11.0'
+#=end # Rails 3
+
+  s.add_development_dependency "sqlite3"
+end

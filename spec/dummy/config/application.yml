@@ -1,0 +1,25 @@
+# referenced by factory.rake, engine.rake and commit script
+
+development:
+  app_name: Development
+  engines: mcp_pbx, mcp_call #, qa, mcp_pos
+  smtp_settings:
+    address: smtp.gmail.com
+    port: 587
+    user_name: user@domain.com
+    password: super_secret_password
+    authentication: plain
+    enable_starttls_auto: true
+  mcp_pbx:
+    call_report:
+      mail_to: support@maxcole.com, robert.roach@maxcole.com
+
+test:
+  app_name: mcpa
+  engines: mcp_pbx, mcp_call #, qa, mcp_pos
+
+production:
+  app_name: Change Me
+  engines: mcp_pbx, mcp_call #, qa, mcp_pos
+  relative_url: mcp
+

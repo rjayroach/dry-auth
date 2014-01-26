@@ -1,0 +1,32 @@
+--- !ruby/hash:OmniAuth::AuthHash
+provider: facebook
+uid: '100005787840155'
+info: !ruby/hash:OmniAuth::AuthHash::InfoHash
+  nickname: dave.tone.31
+  email: davetone123@gmail.com
+  name: Dave Tone
+  first_name: Dave
+  last_name: Tone
+  image: http://graph.facebook.com/100005787840155/picture?type=square
+  urls: !ruby/hash:OmniAuth::AuthHash
+    Facebook: http://www.facebook.com/dave.tone.31
+  verified: true
+credentials: !ruby/hash:OmniAuth::AuthHash
+  token: BAAIGIKlVC74BAEm9aTtEfnjKBOLZBIa0rpYl1l5E5Mjd20ZBdGn5g70SOIrmeZA2ZCfBeT0zihnAWQqVe6zsEgKNXN3j4nigUg2twUMZA3L79WiZCqaWeGAy9HvtAH735MBvZBZC7DrTs2hC0l6NJ2NDHtRekNYd5HGqXLuHGWCN4f0msMO4kSFM8cSIt0cSUUwZD
+  expires_at: 1371634239
+  expires: true
+extra: !ruby/hash:OmniAuth::AuthHash
+  raw_info: !ruby/hash:OmniAuth::AuthHash
+    id: '100005787840155'
+    name: Dave Tone
+    first_name: Dave
+    last_name: Tone
+    link: http://www.facebook.com/dave.tone.31
+    username: dave.tone.31
+    gender: male
+    email: davetone123@gmail.com
+    timezone: 8
+    locale: en_US
+    verified: true
+    updated_time: '2013-04-19T08:11:27+0000'
+
