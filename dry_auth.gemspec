@@ -8,12 +8,12 @@ Gem::Specification.new do |s|
   s.name        = "dry_auth"
   s.version     = DryAuth::VERSION
   s.authors     = ["Robert Roach"]
-  s.email       = ["robert.roach@maxcole.com"]
-  s.homepage    = "http://www.maxcole.com"
-  s.summary     = "An Mcp Gem"
-  s.description = "Provide a single authentication interface including Devise, CanCan, Rolify and Omniauth."
+  s.email       = ["rjayroach@gmail.com"]
+  s.homepage    = "http://rjayroach.github.io"
+  s.summary     = "Simple AAA for a Rails application"
+  s.description = "Provide a single authentication interface including Devise, CanCan, Rolify and PaperTrail."
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["LICENSE", "Rakefile", "README.md"]
 
 #=begin # Rails 3
   s.add_dependency "rails", "~> 3.2.14"
