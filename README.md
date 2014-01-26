@@ -97,7 +97,7 @@ This model needs to be associated to the application's User model, e.g. Member, 
 
 To add fields to DryAuth's User edit view
 
-  4. create a partial to render to edit fields:
+1. create a partial to render to edit fields:
 
 	The file must live in:  app/views/\<engine\>/users/\_form.html.erb
 
@@ -105,7 +105,7 @@ To add fields to DryAuth's User edit view
 
 ### TODO
 
-  5. Strong Parameters on DryAuth::UserController
+1. Strong Parameters on DryAuth::UserController
 
 
 
