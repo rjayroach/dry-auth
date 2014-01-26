@@ -15,9 +15,8 @@ gem "jquery-rails"
 
 # To use debugger
 # gem 'debugger'
-gem "rename", :path => "/home/maxpub/dev/sandbox/rename"
+gem "mcp_common", git: 'https://github.com/rjayroach/mcp_common', branch: 'master'
 
-gem "mcp_common", :path => "/home/maxpub/dev/engines/mcp_common"
 #gem "devise"
 #gem "will_paginate", ">= 3.0.3"
 #gem "jquery-datatables-rails"
