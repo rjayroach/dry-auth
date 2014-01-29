@@ -17,6 +17,8 @@ gem "jquery-rails"
 # gem 'debugger'
 gem "mcp_common", git: 'https://github.com/rjayroach/mcp_common', branch: 'master'
 
+gem 'coveralls', require: false
+
 #gem "devise"
 #gem "will_paginate", ">= 3.0.3"
 #gem "jquery-datatables-rails"
