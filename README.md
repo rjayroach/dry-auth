@@ -1,8 +1,7 @@
-# DryAuth
-
 [![Build Status](https://semaphoreapp.com/api/v1/projects/6a4f592a-4a69-4976-983f-c10726d6a718/130967/shields_badge.png )](https://semaphoreapp.com/api/v1/projects/6a4f592a-4a69-4976-983f-c10726d6a718/130967/shields_badge.png)
-
 [![Code Climate](https://codeclimate.com/github/rjayroach/dry-auth.png)](https://codeclimate.com/github/rjayroach/dry-auth)
+
+# DryAuth
 
 DryAuth is a simple AAA solution for Rails applications. 
 It's purpose, as it's name implies, is to provide a simple Do Not Repeat Yourself AAA solution for Rails applications.
