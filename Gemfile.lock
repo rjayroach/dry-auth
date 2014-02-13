@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rjayroach/mcp_common
-  revision: 01773ae9c1a251bcc2e35ad66fe5be9c377a0e9b
+  revision: 06865eab8f4c75ce07f17e1aedb16621dff022c0
   branch: master
   specs:
     mcp_common (0.14.3)
@@ -105,6 +105,12 @@ GEM
       sass (~> 3.1)
     compass-rails (1.1.3)
       compass (>= 0.12.2)
+    coveralls (0.7.0)
+      multi_json (~> 1.3)
+      rest-client
+      simplecov (>= 0.7)
+      term-ansicolor
+      thor
     database_cleaner (1.2.0)
     debug_inspector (0.0.2)
     devise (2.2.8)
@@ -263,6 +269,8 @@ GEM
       json (~> 1.4)
     ref (1.0.5)
     request_store (1.0.5)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rolify (3.3.0.rc4)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
@@ -310,6 +318,8 @@ GEM
       railties (~> 3.0)
     sucker_punch (1.0.2)
       celluloid (~> 0.15.1)
+    term-ansicolor (1.2.2)
+      tins (~> 0.8)
     therubyracer (0.12.0)
       libv8 (~> 3.16.14.0)
       ref
@@ -317,6 +327,7 @@ GEM
     tilt (1.4.1)
     timecop (0.7.1)
     timers (1.1.0)
+    tins (0.13.1)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -343,6 +354,7 @@ DEPENDENCIES
   capybara
   coffee-rails
   commands
+  coveralls
   database_cleaner
   dry_auth!
   factory_girl_rails (>= 4.2.0)
