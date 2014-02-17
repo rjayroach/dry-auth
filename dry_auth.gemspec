@@ -15,15 +15,14 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["LICENSE", "Rakefile", "README.md"]
 
-#=begin # Rails 3
   s.add_dependency "rails", "~> 3.2.14"
   s.add_dependency "cancan", "~> 1.6.9"
   s.add_dependency "devise", "~> 2.2.3"
   s.add_dependency "rolify", "= 3.3.0.rc3"
   s.add_dependency "omniauth"
   s.add_dependency "omniauth-facebook", '1.4.0'
-  s.add_dependency "mcp_common" #, '>= 0.11.0'
-#=end # Rails 3
+  s.add_dependency "mcp_common", '>= 0.15.0'
 
   s.add_development_dependency "sqlite3"
+  s.add_development_dependency "geminabox-rake"
 end

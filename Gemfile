@@ -1,4 +1,5 @@
 source "http://rubygems.org"
+source "http://gems.maxcole.com"
 
 # Declare your gem's dependencies in dry_auth.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
