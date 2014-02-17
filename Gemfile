@@ -1,4 +1,5 @@
 source "http://rubygems.org"
+source "http://gems.maxcole.com"
 
 # Declare your gem's dependencies in dry_auth.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
@@ -15,7 +16,7 @@ gem "jquery-rails"
 
 # To use debugger
 # gem 'debugger'
-gem "mcp_common", git: 'https://github.com/rjayroach/mcp_common', branch: 'master'
+#gem "mcp_common", git: 'https://github.com/rjayroach/mcp_common', branch: 'master'
 
 gem 'coveralls', require: false
 
