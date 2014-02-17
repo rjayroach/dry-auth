@@ -1,8 +1,8 @@
 # DryAuth
 
 [![Build Status](https://semaphoreapp.com/api/v1/projects/6a4f592a-4a69-4976-983f-c10726d6a718/130967/shields_badge.png )](https://semaphoreapp.com/api/v1/projects/6a4f592a-4a69-4976-983f-c10726d6a718/130967/shields_badge.png)
-
-[|[Build Status](https://www.codeship.io/projects/bdf88550-7708-0131-7367-0ac5489b4e8b/status)]
+[![Code Climate](https://codeclimate.com/github/rjayroach/dry-auth.png)](https://codeclimate.com/github/rjayroach/dry-auth)
+[![Coverage Status](https://coveralls.io/repos/rjayroach/dry-auth/badge.png?branch=master)](https://coveralls.io/r/rjayroach/dry-auth?branch=master)
 
 DryAuth is a simple AAA solution for Rails applications. 
 It's purpose, as it's name implies, is to provide a simple Do Not Repeat Yourself AAA solution for Rails applications.
@@ -116,5 +116,5 @@ test
 
 See: https://github.com/EppO/rolify/wiki/Tutorial
 
-
+See: https://github.com/EppO/rolify/wiki/Tutorial
 
