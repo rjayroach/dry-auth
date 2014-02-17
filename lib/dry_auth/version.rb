@@ -8,5 +8,5 @@ Given a version number MAJOR.MINOR.PATCH, increment the:
 Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.
 =end
 module DryAuth
-  VERSION = "0.14.0"
+  VERSION = "0.14.1"
 end
