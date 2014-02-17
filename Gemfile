@@ -16,7 +16,8 @@ gem "jquery-rails"
 
 # To use debugger
 # gem 'debugger'
-gem "mcp_common", git: 'https://github.com/rjayroach/mcp_common', branch: 'master'
+# Use git: only when developing on both projects. Not to be used in production release
+#gem "mcp_common", git: 'https://github.com/rjayroach/mcp_common', branch: 'master'
 
 gem 'coveralls', require: false
 
