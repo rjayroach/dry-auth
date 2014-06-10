@@ -8,7 +8,8 @@ module DryAuth
     #devise :database_authenticatable, :registerable,
     #       :recoverable, :rememberable, :trackable, :validatable
   
-    devise :token_authenticatable, :database_authenticatable,
+    #devise :token_authenticatable, :database_authenticatable,
+    devise :database_authenticatable,
            :rememberable, :trackable, :validatable
     # OA
     devise :omniauthable
@@ -19,7 +20,7 @@ module DryAuth
 
     # Support time zones for users
     # See: http://railscasts.com/episodes/106-time-zones-revised?view=asciicast
-    validates_inclusion_of :time_zone, in: ActiveSupport::TimeZone.zones_map(&:name)
+    validates_inclusion_of :time_zone, in: -> {ActiveSupport::TimeZone.zones_map(&:name)}
 
     #
     # Allow user to login with either username or email address

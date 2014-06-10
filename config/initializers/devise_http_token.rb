@@ -10,6 +10,9 @@ Thanks Fabian!
 See: https://groups.google.com/forum/?fromgroups=#!topic/plataformatec-devise/o3Gqgl0yUZo
 =end
 
+=begin
+This is throwing an eorror when upgrading to rails 4 with a new devise version that deprecate TokenAuthenticatable
+See: http://stackoverflow.com/questions/18931952/devise-token-authenticatable-deprecated-what-is-the-alternative
 require 'devise/strategies/token_authenticatable'
 module Devise
   module Strategies
@@ -28,4 +31,4 @@ module Devise
   end
 end
 
-
+=end

@@ -5,7 +5,7 @@ DryAuth::Engine.routes.draw do
     scope module: :v1, constraints: McpCommon::ApiConstraints.new(version: 1, default: true) do
       resources :tokens, only: [:create, :destroy]
       resources :users, only: [:show]
-      match "/profile" => "users#show"
+      get "/profile" => "users#show"
     end
   end
 

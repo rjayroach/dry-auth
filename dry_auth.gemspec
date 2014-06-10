@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rolify"
   #s.add_dependency "rails", "~> 3.2.14"
   #s.add_dependency "cancan", "~> 1.6.9"
-  s.add_dependency "devise", "~> 2.2.3"
+  s.add_dependency "devise" #, "~> 2.2.3"
   #s.add_dependency "rolify", "= 3.3.0.rc3"
   s.add_dependency "omniauth"
   s.add_dependency "omniauth-facebook", '1.4.0'
