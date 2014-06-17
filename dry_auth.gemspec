@@ -24,5 +24,6 @@ Gem::Specification.new do |s|
   s.add_dependency "mcp_common", '>= 0.15.0'
 
   s.add_development_dependency "sqlite3"
+  s.add_development_dependency "faker"
   s.add_development_dependency "geminabox-rake"
 end

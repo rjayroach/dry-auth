@@ -25,13 +25,14 @@ module DryAuth
 
       trait :with_dave_tone_facebook do
         after(:create) do |instance, evaluator|
-          instance.auth_profiles << create(:dry_auth_auth_profile, :dave_tone_facebook)
+          instance.auth_profiles << create(:dry_auth_auth_profile, :dave_tone_facebook,
+                                          user: instance)
         end
       end
 
       trait :with_facebook do
         after(:create) do |instance, evaluator|
-          instance.auth_profiles << create(:dry_auth_auth_profile)
+          instance.auth_profiles << create(:dry_auth_auth_profile, user: instance)
         end
       end
     end
