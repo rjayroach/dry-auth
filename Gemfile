@@ -1,5 +1,5 @@
 source "http://rubygems.org"
-source "http://gems.maxcole.com"
+source "http://rubygems.maxcole.com"
 
 # Declare your gem's dependencies in dry_auth.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
@@ -35,8 +35,6 @@ end
 
 group :test do
   gem "timecop"
-  gem "spork"
-  gem "guard-spork"
   gem "guard-rspec"
   gem "rb-inotify"
   gem "simplecov"
@@ -55,4 +53,4 @@ gem "pry-rails"
 gem "pry-doc", :group => [:development, :test]
 gem "pry-nav", :group => [:development, :test]
 gem "pry-stack_explorer", :group => [:development, :test]
-gem 'commands', group: [:development, :test]
+
