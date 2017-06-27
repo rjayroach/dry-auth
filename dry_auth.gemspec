@@ -20,10 +20,10 @@ Gem::Specification.new do |s|
   s.add_dependency "devise", "~> 2.2.3"
   s.add_dependency "rolify", "= 3.3.0.rc3"
   s.add_dependency "omniauth"
-  s.add_dependency "omniauth-facebook", '1.4.0'
+  s.add_dependency "omniauth-facebook", '4.0.0'
   s.add_dependency "mcp_common", '>= 0.15.0'
 
   s.add_development_dependency "sqlite3"
-  s.add_development_dependency "faker"
+  # s.add_development_dependency "faker"
   s.add_development_dependency "geminabox-rake"
 end

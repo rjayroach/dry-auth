@@ -62,7 +62,7 @@ module DryAuth
 
 
       # Now, update the session
-      I18n.locale = current_locale
+      I18n.locale = current_locale if I18n.locale_available? current_locale
 
       Rails.logger.debug { "params[:locale]: #{params[:locale]}" }
       Rails.logger.debug { "session[:locale]: #{session[:locale]}" }
